@@ -76,5 +76,14 @@
         "linter": "eslint"
       }
     }
+  },
+  "projects": {
+    "portfolio": "apps/portfolio",
+    "portfolio-e2e": "apps/portfolio-e2e",
+    "mafia-web-app": "apps/mafia/WebApplication1",
+    "student-activity": "apps/student-activity",
+    "smart-clock": "apps/smart-clock",
+    "mario-game": "apps/mario",
+    "osdev-project": "apps/osdev"
   }
 }
