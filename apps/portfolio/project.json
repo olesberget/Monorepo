@@ -1,9 +1,26 @@
 {
   "name": "portfolio",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/portfolio/src",
   "projectType": "application",
+  "sourceRoot": "apps/portfolio/src",
   "tags": [],
-  "// targets": "to see all targets run: nx show project portfolio --web",
-  "targets": {}
+  "targets": {
+    "build": {
+      "executor": "@nx/js:swc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "apps/portfolio/src/main.ts",
+        "outputPath": "dist/apps/portfolio",
+        "tsConfig": "apps/portfolio/tsconfig.app.json"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "portfolio:build",
+        "spa": true
+      }
+    }
+  }
 }
